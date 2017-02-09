@@ -12,17 +12,43 @@ function testSolution(input) {
 
 describe('Solution', function() {
 
-  describe('program', function() {
-    it('should print hello world', function() {
+    describe('program', function() {
 
-      // Arrange
-      const input = [];
+        [
+            {
+                input: ['6 6'],
+                result: 7
+            }, {
+                input: ['6 4'],
+                result: ['5', '6', '7']
+            }, {
+                input: ['12 20'],
+                result: [
+                    '13',
+                    '14',
+                    '15',
+                    '16',
+                    '17',
+                    '18',
+                    '19',
+                    '20',
+                    '21'
+                ]
+            }
+        ].forEach((testCase) => {
 
-      // Act
-      const result = testSolution(input);
+            it('should solve for ' + testCase.input, function() {
 
-      // Assert
-      assert.equal(result, 'hello world!');
+                // Arrange
+                const input = testCase.input;
+
+                // Act
+                const result = testSolution(input);
+
+                // Assert
+                assert.deepEqual(result, testCase.result);
+            });
+
+        })
     });
-  });
 });
