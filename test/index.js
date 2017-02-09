@@ -1,6 +1,14 @@
 const solver = require('../index');
 const assert = require('assert');
 
+function testSolution(input) {
+
+    const result = [];
+
+    solver((ans) => result.push(ans), () => input.shift());
+
+    return result.length == 1 && result[0] || result;
+}
 
 describe('Solution', function() {
 
@@ -8,13 +16,13 @@ describe('Solution', function() {
     it('should print hello world', function() {
 
       // Arrange
-      const result = [];
+      const input = [];
 
       // Act
-      solver((ans) => result.push(ans));
+      const result = testSolution(input);
 
       // Assert
-      assert.equal(result[0], 'hello world!');
+      assert.equal(result, 'hello world!');
     });
   });
 });
