@@ -1,0 +1,10 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "firefox": 24
+      },
+       "modules": false
+    }]
+  ]
+}

@@ -3,7 +3,7 @@ class solver {
 
   constructor(printSol) {
 
-    if(!global.print || printSol) {
+    if(typeof global !== 'undefined' && (!global.print || printSol)) {
       global.print = printSol || console.log;
     }
   }
@@ -21,4 +21,6 @@ if((typeof process == 'undefined') || (process.release.name !== 'node')) {
   solution.solve();
 }
 
-module.exports = solver;
+if(typeof module !== 'undefined') {
+  module.exports = solver;
+}
