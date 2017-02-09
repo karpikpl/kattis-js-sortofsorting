@@ -1,18 +1,20 @@
 const solver = require('../index');
 const assert = require('assert');
 
-const solution = new solver((res) => res);
 
 describe('Solution', function() {
 
   describe('program', function() {
     it('should print hello world', function() {
 
+      // Arrange
+      const result = [];
+
       // Act
-      const result = solution.solve();
+      solver((ans) => result.push(ans));
 
       // Assert
-      assert.equal(result, 'hello world!');
+      assert.equal(result[0], 'hello world!');
     });
   });
 });
