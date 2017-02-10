@@ -96,7 +96,7 @@ if (typeof process !== 'undefined' && process.argv[2] && process.argv[2] !== 'i'
 
 function log(){
 
-    if(typeof process === 'undefined' || process.release.name === 'node') {
+    if(typeof process !== 'undefined' && process.release.name === 'node') {
         console.log.call(this, ...arguments);
     }
 }
