@@ -4,6 +4,7 @@
 // put your solution in this method
 function solution(toPrint, toRead) {
 
+    const startAll = new Date();
     const input = readline().split(' ');
     const dice1 = parseInt(input[0]);
     const dice2 = parseInt(input[1]);
@@ -23,20 +24,16 @@ function solution(toPrint, toRead) {
 
     let sums = [];
 
-    Object.keys(results).forEach((o) => sums.push({
-        prob: results[o],
-        sum: o
-    }));
+    Object.keys(results).forEach((o) => sums.push({prob: results[o], sum: o}));
 
     sums = sums.sort((a, b) => b.prob - a.prob);
     const max = sums[0].prob;
 
     //log(sums);
 
-    sums
-        .filter(s => s.prob == max)
-        .sort((a, b) => a.sum - b.sum)
-        .forEach(s => print(s.sum));
+    sums.filter(s => s.prob == max).sort((a, b) => a.sum - b.sum).forEach(s => print(s.sum));
+
+    log(`Solved ALL in ${new Date() - startAll}`);
 }
 
 // run solution without any params for kattis
@@ -63,10 +60,7 @@ if (typeof process !== 'undefined' && process.argv[2] === 'i') {
     const Readline = require('readline');
     const input = [];
 
-    const inputProcessor = Readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
+    const inputProcessor = Readline.createInterface({input: process.stdin, output: process.stdout});
 
     inputProcessor.on('line', (line) => {
 
@@ -88,15 +82,15 @@ if (typeof process !== 'undefined' && process.argv[2] === 'i') {
 // input from process params
 if (typeof process !== 'undefined' && process.argv[2] && process.argv[2] !== 'i') {
 
-    const input = process.argv[2].split('\n');
+    const input = process.argv[2].split('\\n');
     init(console.log, () => input.shift());
 
     solution();
 }
 
-function log(){
+function log() {
 
-    if(typeof process !== 'undefined' && process.release.name === 'node') {
+    if (typeof process !== 'undefined' && process.release.name === 'node') {
         console.log.call(this, ...arguments);
     }
 }
