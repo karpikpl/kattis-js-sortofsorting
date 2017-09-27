@@ -5,33 +5,31 @@
 function solution(toPrint, toRead) {
 
     const startAll = new Date();
-    const input = readline().split(' ');
-    const dice1 = parseInt(input[0]);
-    const dice2 = parseInt(input[1]);
+    let n = parseInt(readline());
 
-    log(`Parsed input dice 1: ${dice1} dice 2: ${dice2}`);
+    while (n !== 0) {
 
-    const results = {};
-    let maxProb = 0;
+        const names = [];
 
-    for (let i = 1; i <= dice1; i++)
-        for (let j = 1; j <= dice2; j++) {
-            const prob = (1 / dice1) + (1 / dice2);
-            const sum = i + j;
+        for (let i = 0; i < n; i++) {
 
-            results[sum] = (results[sum] || 0) + prob;
+            const name = readline();
+            names.push(name);
         }
 
-    let sums = [];
+        names.sort((a, b) => {
+            return a[0] + a[1] > b[0] + b[1]
+        });
+        log(names);
 
-    Object.keys(results).forEach((o) => sums.push({prob: results[o], sum: o}));
+        names.forEach(print);
 
-    sums = sums.sort((a, b) => b.prob - a.prob);
-    const max = sums[0].prob;
+        n = parseInt(readline());
 
-    //log(sums);
-
-    sums.filter(s => s.prob == max).sort((a, b) => a.sum - b.sum).forEach(s => print(s.sum));
+        if (n !== 0) {
+            print('');
+        }
+    }
 
     log(`Solved ALL in ${new Date() - startAll}`);
 }
@@ -60,7 +58,10 @@ if (typeof process !== 'undefined' && process.argv[2] === 'i') {
     const Readline = require('readline');
     const input = [];
 
-    const inputProcessor = Readline.createInterface({input: process.stdin, output: process.stdout});
+    const inputProcessor = Readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
 
     inputProcessor.on('line', (line) => {
 

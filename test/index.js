@@ -20,24 +20,26 @@ describe('Solution', function() {
 
         [
             {
-                input: ['6 6'],
-                result: [7]
-            }, {
-                input: ['6 4'],
-                result: ['5', '6', '7']
-            }, {
-                input: ['12 20'],
-                result: [
-                    '13',
-                    '14',
-                    '15',
-                    '16',
-                    '17',
-                    '18',
-                    '19',
-                    '20',
-                    '21'
-                ]
+                input: ['3',
+'Mozart',
+'Beethoven',
+'Bach',
+'5',
+'Hilbert',
+'Godel',
+'Poincare',
+'Ramanujan',
+'Pochhammmer',
+'0'],
+                result: ['Bach',
+'Beethoven',
+'Mozart',
+'',
+'Godel',
+'Hilbert',
+'Poincare',
+'Pochhammmer',
+'Ramanujan']
             }
         ].forEach((testCase) => {
 
