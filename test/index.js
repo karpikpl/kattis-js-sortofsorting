@@ -40,6 +40,24 @@ describe('Solution', function() {
 'Poincare',
 'Pochhammmer',
 'Ramanujan']
+            },
+            {
+                input: [
+'6',
+'zZbla',
+'zZabla',
+'ZZa',
+'ZZ',
+'Abla',
+'abla',
+'0'],
+                result: [
+'Abla',
+'ZZa',
+'ZZ',
+'abla',
+'zZbla',
+'zZabla']
             }
         ].forEach((testCase) => {
 
@@ -50,6 +68,8 @@ describe('Solution', function() {
 
                 // Act
                 const result = testSolution(input);
+
+                console.log('test result is: ', result);
 
                 // Assert
                 assert.deepEqual(result, testCase.result);

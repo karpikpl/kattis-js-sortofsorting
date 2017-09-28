@@ -22,7 +22,7 @@ function solution(toPrint, toRead) {
         });
         log(names);
 
-        names.forEach(print);
+         names.forEach((student) => print(student));
 
         n = parseInt(readline());
 
